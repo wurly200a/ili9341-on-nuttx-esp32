@@ -92,6 +92,11 @@ function configure() {
     kconfig-tweak --enable DEBUG_GPIO_WARN
     kconfig-tweak --enable DEBUG_GPIO_INFO
 
+    kconfig-tweak --enable DEBUG_LCD
+    kconfig-tweak --enable DEBUG_LCD_ERROR
+    kconfig-tweak --enable DEBUG_LCD_WARN
+    kconfig-tweak --enable DEBUG_LCD_INFO
+
     kconfig-tweak --enable DEBUG_ASSERTIONS
     kconfig-tweak --enable DEBUG_SYMBOLS
 
@@ -134,7 +139,7 @@ function configure() {
 #          (X) Read & Write
     kconfig-tweak --enable ESP32_SPI_SWCS
     kconfig-tweak --disable ESP32_SPI2_DMA
-    kconfig-tweak --set-val ESP32_SPI2_CSPIN 15
+    kconfig-tweak --set-val ESP32_SPI2_CSPIN 26
     kconfig-tweak --set-val ESP32_SPI2_CLKPIN 18  # default 14
     kconfig-tweak --set-val ESP32_SPI2_MOSIPIN 23 # default 13
     kconfig-tweak --set-val ESP32_SPI2_MISOPIN 19 # default 12
@@ -279,11 +284,11 @@ function configure() {
     kconfig-tweak --set-val NX_BGCOLOR 0x0
 
 # Supported Pixel Depths
-    kconfig-tweak --disable NX_DISABLE_1BPP
+    kconfig-tweak --enable NX_DISABLE_1BPP
     kconfig-tweak --enable NX_DISABLE_2BPP
     kconfig-tweak --enable NX_DISABLE_4BPP
     kconfig-tweak --enable NX_DISABLE_8BPP
-    kconfig-tweak --enable NX_DISABLE_16BPP
+    kconfig-tweak --disable NX_DISABLE_16BPP
     kconfig-tweak --enable NX_DISABLE_24BPP
     kconfig-tweak --enable NX_DISABLE_32BPP
     kconfig-tweak --enable NX_PACKEDMSFIRST
@@ -325,11 +330,11 @@ function configure() {
 #
 # Font Cache Pixel Depths
 #
-    kconfig-tweak --disable NXFONTS_DISABLE_1BPP
+    kconfig-tweak --enable NXFONTS_DISABLE_1BPP
     kconfig-tweak --enable NXFONTS_DISABLE_2BPP
     kconfig-tweak --enable NXFONTS_DISABLE_4BPP
     kconfig-tweak --enable NXFONTS_DISABLE_8BPP
-    kconfig-tweak --enable NXFONTS_DISABLE_16BPP
+    kconfig-tweak --disable NXFONTS_DISABLE_16BPP
     kconfig-tweak --enable NXFONTS_DISABLE_24BPP
     kconfig-tweak --enable NXFONTS_DISABLE_32BPP
     kconfig-tweak --enable NXFONTS_PACKEDMSFIRST
@@ -381,25 +386,25 @@ function configure() {
 #    kconfig-tweak --disable EXAMPLES_NXDEMO_DEFAULT_COLORS
 #    kconfig-tweak --set-val EXAMPLES_NXDEMO_BGCOLOR 0x0
 #    kconfig-tweak --disable EXAMPLES_NXDEMO_EXTERNINIT
-##    #------------------------------------------------------------#
-#    kconfig-tweak --enable EXAMPLES_NXHELLO
-#    kconfig-tweak --set-str EXAMPLES_NXHELLO_PROGNAME "nxhello"
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_PRIORITY 100
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_STACKSIZE 4096
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_BPP 1
-#
-#    # Example Color Configuration
-#    kconfig-tweak --enable EXAMPLES_NXHELLO_DEFAULT_COLORS
-#
-#    # Example Font Configuration
-#    kconfig-tweak --enable EXAMPLES_NXHELLO_DEFAULT_FONT
-#
-#    # NX Server Options
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_LISTENER_STACKSIZE 4096
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_CLIENTPRIO 100
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_SERVERPRIO 120
-#    kconfig-tweak --set-val EXAMPLES_NXHELLO_LISTENERPRIO 80
 #    #------------------------------------------------------------#
+    kconfig-tweak --enable EXAMPLES_NXHELLO
+    kconfig-tweak --set-str EXAMPLES_NXHELLO_PROGNAME "nxhello"
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_PRIORITY 100
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_STACKSIZE 4096
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_BPP 16
+
+    # Example Color Configuration
+    kconfig-tweak --enable EXAMPLES_NXHELLO_DEFAULT_COLORS
+
+    # Example Font Configuration
+    kconfig-tweak --enable EXAMPLES_NXHELLO_DEFAULT_FONT
+
+    # NX Server Options
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_LISTENER_STACKSIZE 4096
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_CLIENTPRIO 100
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_SERVERPRIO 120
+    kconfig-tweak --set-val EXAMPLES_NXHELLO_LISTENERPRIO 80
+    #------------------------------------------------------------#
 ##    kconfig-tweak --disable EXAMPLES_NXIMAGE
 ##    kconfig-tweak --set-str EXAMPLES_NXIMAGE_PROGNAME "nximage"
 ##    kconfig-tweak --set-val EXAMPLES_NXIMAGE_PRIORITY 100
