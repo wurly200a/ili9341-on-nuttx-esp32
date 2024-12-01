@@ -43,7 +43,7 @@ function configure() {
         git clone ${NUTTX_APPS_GIT_URL} -b ${NUTTX_APPS_GIT_TAG} ${NUTTX_APPS_DIR}
     fi
 
-#    cp replacement_files/boards.xtensa.esp32.esp32-devkitc.src.esp32_w5500.c ${NUTTX_DIR}/boards/xtensa/esp32/esp32-devkitc/src/esp32_w5500.c
+    cp replacement_files/nuttx.boards.xtensa.esp32.esp32-devkitc.include.board.h ${NUTTX_DIR}/boards/xtensa/esp32/esp32-devkitc/include/board.h
 
     cd nuttx
     ./tools/configure.sh -l ${BOARD}:${CONFIG}
